@@ -10,12 +10,10 @@ import BMI from "./components/BMI";
 import Booking from "./components/Booking";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   return (
     <>
-      <CustomCursor />
       <Navbar />
       <main>
         <Hero />
