@@ -8,7 +8,7 @@ import Trainers from "./components/Trainers";
 import Plans from "./components/Plans";
 import BMI from "./components/BMI";
 import Booking from "./components/Booking";
-import CustomerCare from "./components/CustomerCare";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
         <Plans />
         <BMI />
         <Booking />
-        <CustomerCare />
+        <Contact />
       </main>
       <Footer />
     </>

@@ -8,6 +8,7 @@ const links = [
   { label: "Plans", href: "#plans" },
   { label: "BMI", href: "#bmi" },
   { label: "Booking", href: "#booking" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
