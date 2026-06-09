@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "../utils/gsapSetup";
-import { gymImages } from "../data/images";
+import HeroSlider from "./HeroSlider";
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -14,25 +14,6 @@ export default function Hero() {
         .from(".hero-subtitle", { opacity: 0, y: 40, duration: 0.8 }, "-=0.5")
         .from(".hero-cta-group .btn", { opacity: 0, y: 30, duration: 0.6, stagger: 0.15 }, "-=0.4")
         .from(".hero-scroll", { opacity: 0, duration: 0.8 }, "-=0.2");
-
-      gsap.to(".hero-bg-img", {
-        scale: 1.12,
-        duration: 20,
-        ease: "none",
-        repeat: -1,
-        yoyo: true,
-      });
-
-      gsap.to(".hero-bg-img", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-        y: 120,
-        ease: "none",
-      });
 
       gsap.to(".hero-content", {
         scrollTrigger: {
@@ -57,11 +38,7 @@ export default function Hero() {
   return (
     <section id="home" className="hero" ref={sectionRef}>
       <div className="hero-media">
-        <img
-          className="hero-bg-img"
-          src={gymImages.hero}
-          alt="FIT BRO gym interior"
-        />
+        <HeroSlider />
         <div className="hero-overlay" />
       </div>
 

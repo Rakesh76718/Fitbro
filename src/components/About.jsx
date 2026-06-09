@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { FiActivity, FiUsers, FiCoffee } from "react-icons/fi";
 import { gsap } from "../utils/gsapSetup";
 import { gymImages } from "../data/images";
+import TiltCard from "./TiltCard";
 
 const aboutInfo = {
   mission: "Transforming lives through fitness and empowerment",
@@ -111,7 +112,7 @@ export default function About() {
 
         <div className="about-grid">
           {features.map((feature) => (
-            <div key={feature.title} className="glass-card about-card">
+            <TiltCard key={feature.title} className="glass-card about-card">
               <div className="about-card-img">
                 <img src={feature.image} alt={feature.title} loading="lazy" />
               </div>
@@ -120,7 +121,7 @@ export default function About() {
                 <h3>{feature.title}</h3>
                 <p>{feature.desc}</p>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

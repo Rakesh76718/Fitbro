@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { FiCheck } from "react-icons/fi";
 import { gsap } from "../utils/gsapSetup";
 import { gymImages } from "../data/images";
+import TiltCard from "./TiltCard";
 
 const plans = [
   {
@@ -99,7 +100,7 @@ export default function Plans() {
 
         <div className="plans-grid">
           {plans.map((plan) => (
-            <div
+            <TiltCard
               key={plan.name}
               className={`glass-card plan-card ${plan.featured ? "featured" : ""}`}
             >
@@ -121,7 +122,7 @@ export default function Plans() {
               <button className={`btn ${plan.featured ? "btn-primary" : "btn-outline"}`}>
                 Get {plan.name}
               </button>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

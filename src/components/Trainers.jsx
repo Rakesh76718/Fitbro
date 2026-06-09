@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "../utils/gsapSetup";
 import { gymImages } from "../data/images";
+import TiltCard from "./TiltCard";
 
 const trainers = [
   {
@@ -54,24 +55,7 @@ export default function Trainers() {
       });
     }, sectionRef);
 
-    const handlers = [];
-    const cards = sectionRef.current?.querySelectorAll(".trainer-card");
-    cards?.forEach((card) => {
-      const img = card.querySelector("img");
-      const onEnter = () => gsap.to(img, { scale: 1.1, duration: 0.6, ease: "power2.out" });
-      const onLeave = () => gsap.to(img, { scale: 1, duration: 0.6, ease: "power2.out" });
-      card.addEventListener("mouseenter", onEnter);
-      card.addEventListener("mouseleave", onLeave);
-      handlers.push({ card, onEnter, onLeave });
-    });
-
-    return () => {
-      handlers.forEach(({ card, onEnter, onLeave }) => {
-        card.removeEventListener("mouseenter", onEnter);
-        card.removeEventListener("mouseleave", onLeave);
-      });
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -87,7 +71,7 @@ export default function Trainers() {
 
         <div className="trainers-grid">
           {trainers.map((trainer) => (
-            <div key={trainer.name} className="glass-card trainer-card">
+            <TiltCard key={trainer.name} className="glass-card trainer-card">
               <div className="trainer-avatar">
                 <img src={trainer.image} alt={trainer.name} loading="lazy" />
               </div>
@@ -96,7 +80,7 @@ export default function Trainers() {
                 <p className="trainer-role">{trainer.role}</p>
                 <span className="trainer-tag">{trainer.tag}</span>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>
